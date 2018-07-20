@@ -11,7 +11,7 @@ except ImportError:
     import _thread as thread
 
 # raspberry pi IP Address
-IP_ADDRESS = sys.argv[1]
+# IP_ADDRESS = sys.argv[1]
 BATTERY_VOLTS = 9
 MOTOR_VOLTS = 6
 
