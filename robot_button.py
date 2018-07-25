@@ -9,4 +9,4 @@ while True:
         robot.main()
         
     if rr.sw1_closed():
-        rr.stop()
+        robot.robot_stop()
