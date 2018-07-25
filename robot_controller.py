@@ -80,6 +80,7 @@ def main():
     try:
         ws.run_forever()
         if rr.sw1_closed():
+            ws.close()
             button.main()
     except KeyboardInterrupt:
         ws.close()
