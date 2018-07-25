@@ -26,8 +26,8 @@ back_speed = 0.3
 
 
 def command(message):
-#     cmd = message
-#     print(cmd, message)
+    if ',' in message:
+        message = message.split(',')[1].replace('"', '').replace(']', '')
     if message == 'back':
         print('cmd', 'back', message)
         rr.forward(0, back_speed)
@@ -49,9 +49,7 @@ def command(message):
 
 
 def on_message(ws, message):
-    if ',' in message:
-        print(message.split(',')[1].replace('"', '').replace(']', ''))
-        command(message)
+    command(message)
 
 
 def on_error(ws, error):
