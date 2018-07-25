@@ -77,8 +77,8 @@ def main():
                               on_error = on_error,
                               on_close = on_close)
     if rr.sw1_closed():
-            ws.close()
-            button.main()
+        ws.close()
+        button.main()
     ws.on_open = on_open
     
     try:
