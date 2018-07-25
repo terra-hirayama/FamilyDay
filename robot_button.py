@@ -5,6 +5,7 @@ def main():
     rr = RRB3()
 
     while True:
+        print(rr.sw1_closed())
         if rr.sw1_closed():
             print('button')
             robot.main()
