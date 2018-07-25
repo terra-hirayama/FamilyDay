@@ -25,7 +25,7 @@ half_speed = 0.5
 back_speed = 0.3
 
 
-def command(message):
+def command(ws, message):
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
     if message == 'back':
@@ -43,13 +43,15 @@ def command(message):
     elif message == 'stop':
         print('cmd', 'stop', message)
         rr.stop()
+        ws.close()
+
     else:
         print('cmd', 'forward', message)
         rr.reverse(0, half_speed)
 
 
 def on_message(ws, message):
-    command(message)
+    command(ws, message)
 
 
 def on_error(ws, error):
@@ -76,10 +78,10 @@ def main():
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
-    if rr.sw1_closed() == False:
-        rr.stop()
-        ws.close()
-        button.main()
+    # if rr.sw1_closed() == False:
+    #     rr.stop()
+    #     ws.close()
+    #     button.main()
     ws.on_open = on_open
     
     try:
