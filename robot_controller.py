@@ -76,12 +76,13 @@ def main():
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
-    ws.on_open = on_open
-    try:
-        ws.run_forever()
-        if rr.sw1_closed():
+    if rr.sw1_closed():
             ws.close()
             button.main()
+    ws.on_open = on_open
+    
+    try:
+        ws.run_forever()
     except KeyboardInterrupt:
         ws.close()
 
