@@ -7,3 +7,6 @@ rr = RRB3()
 while True:
     if rr.sw1_closed():
         robot.main()
+        
+    if rr.sw1_closed():
+        rr.stop()
