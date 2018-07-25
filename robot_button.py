@@ -9,8 +9,6 @@ def main():
             print('button')
             robot.main()
 
-        if rr.sw1_closed():
-            rr.stop()
 
 if __name__ == '__main__':
     main()
