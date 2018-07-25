@@ -3,6 +3,8 @@ import websocket
 import time
 import logging
 import sys
+import robot_button as button
+
 logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
 
 try:
@@ -77,6 +79,8 @@ def main():
     ws.on_open = on_open
     try:
         ws.run_forever()
+        if rr.sw1_closed():
+            button.main()
     except KeyboardInterrupt:
         ws.close()
 
