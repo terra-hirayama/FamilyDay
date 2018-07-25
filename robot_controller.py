@@ -37,7 +37,7 @@ def command(message):
         rr.right(0, half_speed)
 
     elif cmd == 'stop':
-        rr.stop(10)
+        rr.stop()
     else:
         rr.reverse(0, half_speed)
 
