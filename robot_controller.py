@@ -78,7 +78,6 @@ def main():
                               on_close = on_close)
     if rr.sw1_closed():
         ws.close()
-        button.main()
     ws.on_open = on_open
     
     try:
