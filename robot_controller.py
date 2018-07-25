@@ -76,8 +76,9 @@ def main():
                               on_message = on_message,
                               on_error = on_error,
                               on_close = on_close)
-    if rr.sw1_closed():
+    if rr.sw1_closed() == False:
         ws.close()
+        button.main()
     ws.on_open = on_open
     
     try:
