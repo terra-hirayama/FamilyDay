@@ -26,24 +26,25 @@ back_speed = 0.3
 
 
 def command(message):
-    cmd = message
-    if cmd == 'back':
-        print('cmd', 'back')
+#     cmd = message
+#     print(cmd, message)
+    if message == 'back':
+        print('cmd', 'back', message)
         rr.forward(0, back_speed)
 
-    elif cmd == 'right':
-        print('cmd', 'right')
+    elif message == 'right':
+        print('cmd', 'right', message)
         rr.left(0, half_speed)
 
-    elif cmd == 'left':
-        print('cmd', 'left')
+    elif message == 'left':
+        print('cmd', 'left', message)
         rr.right(0, half_speed)
 
-    elif cmd == 'stop':
-        print('cmd', 'stop')
+    elif message == 'stop':
+        print('cmd', 'stop', message)
         rr.stop()
     else:
-        print('cmd', 'forward')
+        print('cmd', 'forward', message)
         rr.reverse(0, half_speed)
 
 
@@ -68,10 +69,6 @@ def on_open(ws):
         ws.close()
         print('thread terminating...')
     thread.start_new_thread(run, ())
-
-    
-def robot_stop():
-    rr.stop()
 
     
 def main():
