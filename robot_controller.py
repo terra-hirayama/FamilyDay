@@ -63,6 +63,10 @@ def on_open(ws):
     thread.start_new_thread(run, ())
 
     
+def robot_stop():
+    rr.stop()
+
+    
 def main():
     websocket.enableTrace(True)
     url = 'wss://suika-terrasky.herokuapp.com/socket.io/?EIO=3&transport=websocket'
