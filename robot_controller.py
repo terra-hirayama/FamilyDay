@@ -37,9 +37,9 @@ def command(message):
         rr.right(0.5, half_speed)
 
     elif cmd == 'stop':
-        rr.stop()
+        rr.stop(10)
     else:
-        rr.reverse(10, half_speed)
+        rr.reverse(0.5, half_speed)
 
 
 def on_message(ws, message):
