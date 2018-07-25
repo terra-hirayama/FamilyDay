@@ -44,6 +44,7 @@ def command(ws, message):
         print('cmd', 'stop', message)
         rr.stop()
         ws.close()
+        button.main()
 
     else:
         print('cmd', 'forward', message)
