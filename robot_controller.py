@@ -62,8 +62,8 @@ def on_open(ws):
         print('thread terminating...')
     thread.start_new_thread(run, ())
 
-
-if __name__ == '__main__':
+    
+def main():
     websocket.enableTrace(True)
     url = 'wss://suika-terrasky.herokuapp.com/socket.io/?EIO=3&transport=websocket'
     ws = websocket.WebSocketApp(url,
@@ -75,4 +75,8 @@ if __name__ == '__main__':
         ws.run_forever()
     except KeyboardInterrupt:
         ws.close()
+
+
+if __name__ == '__main__':
+    main()
 
