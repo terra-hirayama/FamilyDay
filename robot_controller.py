@@ -28,18 +28,18 @@ back_speed = 0.3
 def command(message):
     cmd = message
     if cmd == 'back':
-        rr.forward(0.5, back_speed)
+        rr.forward(0, back_speed)
 
     elif cmd == 'right':
-        rr.left(0.5, half_speed)
+        rr.left(0, half_speed)
 
     elif cmd == 'left':
-        rr.right(0.5, half_speed)
+        rr.right(0, half_speed)
 
     elif cmd == 'stop':
         rr.stop(10)
     else:
-        rr.reverse(0.5, half_speed)
+        rr.reverse(0, half_speed)
 
 
 def on_message(ws, message):
