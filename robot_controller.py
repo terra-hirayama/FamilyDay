@@ -26,36 +26,36 @@ back_speed = 0.1
 def command(ws, message):
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
+        
+    if message == 'start':
+        rr.reverse(0, half_speed)
      
-    if start_flag:
-        if message == 'back':
-            print('cmd', 'back', message)
-            rr.forward(3, back_speed)
+    if message == 'back':
+        print('cmd', 'back', message)
+        rr.forward(3, back_speed)
 
-        elif message == 'right':
-            print('cmd', 'right', message)
-            rr.left(1.0 / 2, half_speed)
-            rr.reverse(0, half_speed)
+    elif message == 'right':
+        print('cmd', 'right', message)
+        rr.left(1.0 / 2, half_speed)
+        rr.reverse(0, half_speed)
 
-        elif message == 'left':
-            print('cmd', 'left', message)
-            rr.right(1.0 / 2, half_speed)
-            rr.reverse(0, half_speed)
+    elif message == 'left':
+        print('cmd', 'left', message)
+        rr.right(1.0 / 2, half_speed)
+        rr.reverse(0, half_speed)
 
-        elif message == 'stop':
-            print('cmd', 'stop', message)
-            rr.stop()
-            # ws.close()
-            start_flag = False
+    elif message == 'stop':
+        print('cmd', 'stop', message)
+        rr.stop()
+        # ws.close()
+        # start_flag = False
 
-        else:
-            print('cmd', 'forward', message)
-            rr.reverse(0, half_speed)
+    else:
+        print('cmd', 'forward', message)
+        rr.reverse(0, half_speed)
 
 
 def on_message(ws, message):
-    if message == 'start':
-        start_flag = True
     command(ws, message)
 
 
@@ -77,7 +77,6 @@ def on_open(ws):
 
     
 def main():
-    start_flag = False
     websocket.enableTrace(True)
     url = 'wss://suika-terrasky.herokuapp.com/socket.io/?EIO=3&transport=websocket'
     ws = websocket.WebSocketApp(url,
