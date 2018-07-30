@@ -77,6 +77,7 @@ def on_open(ws):
 
     
 def main():
+    start_flag = False
     websocket.enableTrace(True)
     url = 'wss://suika-terrasky.herokuapp.com/socket.io/?EIO=3&transport=websocket'
     ws = websocket.WebSocketApp(url,
@@ -96,6 +97,5 @@ def main():
 
 
 if __name__ == '__main__':
-    start_flag = False
     main()
 
