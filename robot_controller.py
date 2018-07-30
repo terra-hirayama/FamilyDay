@@ -23,13 +23,11 @@ rr = rrb.RRB3(BATTERY_VOLTS, MOTOR_VOLTS)
 half_speed = 0.2
 back_speed = 0.1
 
-start_flag = False
-
 def command(ws, message):
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
      
-    if start_flag == True:
+    if start_flag:
         if message == 'back':
             print('cmd', 'back', message)
             rr.forward(3, back_speed)
@@ -98,5 +96,6 @@ def main():
 
 
 if __name__ == '__main__':
+    start_flag = False
     main()
 
