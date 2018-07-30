@@ -23,7 +23,7 @@ rr = rrb.RRB3(BATTERY_VOLTS, MOTOR_VOLTS)
 half_speed = 0.2
 back_speed = 0.1
 
-global start_flag = False
+start_flag = False
 
 def command(ws, message):
     if ',' in message:
