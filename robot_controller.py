@@ -21,8 +21,8 @@ MOTOR_VOLTS = 6
 rr = rrb.RRB3(BATTERY_VOLTS, MOTOR_VOLTS)
 
 # speed
-half_speed = 0.3
-back_speed = 0.2
+half_speed = 0.2
+back_speed = 0.1
 
 
 def command(ws, message):
@@ -31,7 +31,7 @@ def command(ws, message):
     
     if message == 'back':
         print('cmd', 'back', message)
-        rr.forward(0, back_speed)
+        rr.forward(3, back_speed)
 
     elif message == 'right':
         print('cmd', 'right', message)
