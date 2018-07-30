@@ -24,7 +24,8 @@ half_speed = 0.2
 back_speed = 0.1
 
 def command(ws, message):
-    print(message)
+    if '0' in message or '40' in message:
+        continue
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
         
