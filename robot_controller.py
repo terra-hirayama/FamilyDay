@@ -21,24 +21,25 @@ MOTOR_VOLTS = 6
 rr = rrb.RRB3(BATTERY_VOLTS, MOTOR_VOLTS)
 
 # speed
-half_speed = 0.5
-back_speed = 0.3
+half_speed = 0.3
+back_speed = 0.2
 
 
 def command(ws, message):
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
+    
     if message == 'back':
         print('cmd', 'back', message)
         rr.forward(0, back_speed)
 
     elif message == 'right':
         print('cmd', 'right', message)
-        rr.left(0, half_speed)
+        rr.left(1.0, half_speed)
 
     elif message == 'left':
         print('cmd', 'left', message)
-        rr.right(0, half_speed)
+        rr.right(1.0, half_speed)
 
     elif message == 'stop':
         print('cmd', 'stop', message)
