@@ -24,6 +24,7 @@ half_speed = 0.2
 back_speed = 0.1
 
 def command(ws, message):
+    start_flag = False
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
         
