@@ -28,9 +28,6 @@ start_flag = False
 def command(ws, message):
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
-        
-    if message == 'start':
-        start_flag = True
      
     if start_flag:
         if message == 'back':
@@ -59,6 +56,8 @@ def command(ws, message):
 
 
 def on_message(ws, message):
+    if message == 'start':
+        start_flag = True
     command(ws, message)
 
 
