@@ -29,7 +29,7 @@ def command(ws, message):
     if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
      
-    if start_flag:
+    if start_flag == True:
         if message == 'back':
             print('cmd', 'back', message)
             rr.forward(3, back_speed)
