@@ -35,11 +35,13 @@ def command(ws, message):
 
     elif message == 'right':
         print('cmd', 'right', message)
-        rr.left(1.0, half_speed)
+        rr.left(1.0 / 2, half_speed)
+        rr.reverse(0, half_speed)
 
     elif message == 'left':
         print('cmd', 'left', message)
-        rr.right(1.0, half_speed)
+        rr.right(1.0 / 2, half_speed)
+        rr.reverse(0, half_speed)
 
     elif message == 'stop':
         print('cmd', 'stop', message)
