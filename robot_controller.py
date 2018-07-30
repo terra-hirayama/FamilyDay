@@ -28,31 +28,34 @@ def command(ws, message):
         message = message.split(',')[1].replace('"', '').replace(']', '')
         
     if message == 'start':
+        start_flag = True
         rr.reverse(0, half_speed)
-     
-    if message == 'back':
-        print('cmd', 'back', message)
-        rr.forward(3, back_speed)
+    
+    if start_flag:
+        
+        if message == 'back':
+            print('cmd', 'back', message)
+            rr.forward(3, back_speed)
 
-    elif message == 'right':
-        print('cmd', 'right', message)
-        rr.left(1.0 / 2, half_speed)
-        rr.reverse(0, half_speed)
+        elif message == 'right':
+            print('cmd', 'right', message)
+            rr.left(1.0 / 2, half_speed)
+            rr.reverse(0, half_speed)
 
-    elif message == 'left':
-        print('cmd', 'left', message)
-        rr.right(1.0 / 2, half_speed)
-        rr.reverse(0, half_speed)
+        elif message == 'left':
+            print('cmd', 'left', message)
+            rr.right(1.0 / 2, half_speed)
+            rr.reverse(0, half_speed)
 
-    elif message == 'stop':
-        print('cmd', 'stop', message)
-        rr.stop()
-        # ws.close()
-        # start_flag = False
+        elif message == 'stop':
+            print('cmd', 'stop', message)
+            rr.stop()
+            # ws.close()
+            start_flag = False
 
-    else:
-        print('cmd', 'forward', message)
-        rr.reverse(0, half_speed)
+        else:
+            print('cmd', 'forward', message)
+            rr.reverse(0, half_speed)
 
 
 def on_message(ws, message):
