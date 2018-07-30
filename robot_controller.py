@@ -91,7 +91,7 @@ def main():
     #     rr.stop()
     #     ws.close()
     #     button.main()
-    ws.on_open = on_open
+    # ws.on_open = on_open
     
     try:
         ws.run_forever()
