@@ -23,43 +23,40 @@ rr = rrb.RRB3(BATTERY_VOLTS, MOTOR_VOLTS)
 half_speed = 0.2
 back_speed = 0.1
 
+start_flag = False
+
 def command(ws, message):
-    if '0' in message or '40' in message:
-        pass
-    elif ',' in message:
+    if ',' in message:
         message = message.split(',')[1].replace('"', '').replace(']', '')
         
-        start_flag = False
-        if message == 'start':
-            start_flag = True
+    if message == 'start':
+        start_flag = True
+        rr.reverse(0, half_speed)
+
+    if start_flag:
+        if message == 'back':
+            print('cmd', 'back', message)
+            rr.forward(3, back_speed)
+
+        elif message == 'right':
+            print('cmd', 'right', message)
+            rr.left(1.0 / 2, half_speed)
             rr.reverse(0, half_speed)
+
+        elif message == 'left':
+            print('cmd', 'left', message)
+            rr.right(1.0 / 2, half_speed)
+            rr.reverse(0, half_speed)
+
+        elif message == 'stop':
+            print('cmd', 'stop', message)
+            rr.stop()
+            # ws.close()
+            start_flag = False
+
         else:
-            start_flag = True
-
-        if start_flag:
-            if message == 'back':
-                print('cmd', 'back', message)
-                rr.forward(3, back_speed)
-
-            elif message == 'right':
-                print('cmd', 'right', message)
-                rr.left(1.0 / 2, half_speed)
-                rr.reverse(0, half_speed)
-
-            elif message == 'left':
-                print('cmd', 'left', message)
-                rr.right(1.0 / 2, half_speed)
-                rr.reverse(0, half_speed)
-
-            elif message == 'stop':
-                print('cmd', 'stop', message)
-                rr.stop()
-                # ws.close()
-                start_flag = False
-
-            else:
-                print('cmd', 'forward', message)
-                rr.reverse(0, half_speed)
+            print('cmd', 'forward', message)
+            rr.reverse(0, half_speed)
 
 
 def on_message(ws, message):
