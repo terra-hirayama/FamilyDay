@@ -18,6 +18,8 @@ MOTOR_VOLTS = 6
 
 # Configure the RRB
 rr = rrb.RRB3(BATTERY_VOLTS, MOTOR_VOLTS)
+rr.set_led1(1)
+rr.set_led2(1)
 
 # speed
 half_speed = 0.2
@@ -37,6 +39,7 @@ def command(ws, message):
         if message == 'back':
             print('cmd', 'back', message)
             rr.forward(3, back_speed)
+            rr.reverse(0, half_speed)
 
         elif message == 'right':
             print('cmd', 'right', message)
