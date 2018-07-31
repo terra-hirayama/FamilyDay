@@ -84,6 +84,7 @@ def on_open(ws):
 
     
 def main():
+    
     websocket.enableTrace(True)
     url = 'wss://suika-terrasky.herokuapp.com/socket.io/?EIO=3&transport=websocket'
     ws = websocket.WebSocketApp(url,
@@ -97,7 +98,8 @@ def main():
     # ws.on_open = on_open
     
     try:
-        ws.run_forever()
+        while True:
+            ws.run_forever()
     except KeyboardInterrupt:
         ws.close()
 
